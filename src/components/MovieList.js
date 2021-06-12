@@ -12,18 +12,21 @@ export default function MovieList() {
     fetch(FEATURED_API)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.results);
         setMovies(data.results);
       });
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(SEARCH_API + searchValue)
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data.results);
-      });
+    if (searchValue === "") {
+      setMovies(movies);
+    } else {
+      fetch(SEARCH_API + searchValue)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovies(data.results);
+        });
+    }
   };
 
   const handleChange = (e) => {

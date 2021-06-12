@@ -85,7 +85,7 @@ span {
     width: 90%;
   }
   .movie img {
-    height: auto;
+    height: 550px;
   }
 
   .search {
@@ -98,6 +98,9 @@ span {
   }
   .movie {
     width: 100%;
+  }
+  .movie img {
+    height: 500px;
   }
   .search {
     width: 100%;
