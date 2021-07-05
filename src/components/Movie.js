@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { MovieContext } from "../context/MovieContext";
 
 const IMG_API = "https://image.tmdb.org/t/p/w400//";
