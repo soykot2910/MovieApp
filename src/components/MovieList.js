@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
-import { MovieContext } from "../context/MovieContext";
+import React, { useEffect, useState } from "react";
 import Movie from "./Movie";
-import Navbar from "./Navbar";
 
 const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=8f4b770dd036a39a993bd278fa769318&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=8f4b770dd036a39a993bd278fa769318&language=en-US&query=`;
@@ -43,7 +41,6 @@ export default function MovieList() {
 
   return (
     <>
-      <Navbar />
       <div className="movie-wrapper">
         <form onSubmit={handleSubmit}>
           <div className="input-wrapper">
@@ -59,9 +56,11 @@ export default function MovieList() {
         </form>
         <div className="movie-container">
           {movies.length > 0 ? (
-            movies.map((movie) => <Movie {...movie} />)
+            movies.map((movie) => <Movie movie={movie} type="allMovie" />)
           ) : (
-            <h1 style={{ marginTop: "200px" }}>No Movie Found</h1>
+            <h1 style={{ marginTop: "200px", marginBottom: "500px" }}>
+              No Movie Found
+            </h1>
           )}
         </div>
       </div>

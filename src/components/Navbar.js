@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [scroll, setScroll] = useState(false);
@@ -21,17 +22,14 @@ export default function Navbar() {
   return (
     <div className={scroll ? "navbar navbar-fixed" : "navbar"}>
       <h3>
-        <a href="/">MovieApp</a>
+        <Link to="/">MovieApp</Link>
       </h3>
       <ul>
         <li>
-          <a href="/">Popular</a>
+          <Link to="/watchList">WatchList</Link>
         </li>
         <li>
-          <a href="/">Watch List</a>
-        </li>
-        <li>
-          <a href="/">Watched</a>
+          <Link to="/watched">Watched</Link>
         </li>
       </ul>
     </div>

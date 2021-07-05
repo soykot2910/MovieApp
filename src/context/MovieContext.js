@@ -16,13 +16,13 @@ export default function MovieProvider({ children }) {
   const [state, dispatch] = useReducer(MovieReducer, initialState);
 
   useEffect(() => {
-    localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
+    localStorage.setItem("watchList", JSON.stringify(state.watchList));
     localStorage.setItem("watched", JSON.stringify(state.watched));
   }, [state]);
 
   //actions
   const addMovieToWatchList = (movie) => {
-    dispatch({ type: "ADD_MOVIE_TO_MATCHLIST", payload: movie });
+    dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie });
   };
 
   const removeMovieFromWatchList = (id) => {

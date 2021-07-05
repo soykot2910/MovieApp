@@ -1,6 +1,6 @@
 export const MovieReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_MOVIE_TO_MATCHLIST":
+    case "ADD_MOVIE_TO_WATCHLIST":
       return { ...state, watchList: [action.payload, ...state.watchList] };
     case "REMOVE_MOVIE_FROM_WATCHLIST":
       return {
@@ -9,7 +9,7 @@ export const MovieReducer = (state, action) => {
           (movie) => movie.id !== action.payload
         ),
       };
-    case "ADD_MOVIE_TO_MATCHED":
+    case "ADD_MOVIE_TO_WATCHED":
       return {
         ...state,
         watchList: state.watchList.filter(
