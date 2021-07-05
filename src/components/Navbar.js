@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { MovieContext } from "../context/MovieContext";
 
 export default function Navbar() {
+  const { watchList, watched } = useContext(MovieContext);
   const [scroll, setScroll] = useState(false);
   const [mbl, setMbl] = useState(false);
 
@@ -26,10 +28,15 @@ export default function Navbar() {
       </h3>
       <ul>
         <li>
-          <Link to="/watchList">WatchList</Link>
+          <Link to="/watchList">
+            WatchList <span>{watchList.length}</span>
+          </Link>
         </li>
         <li>
-          <Link to="/watched">Watched</Link>
+          <Link to="/watched">
+            Watched
+            <span>{watched.length}</span>
+          </Link>
         </li>
       </ul>
     </div>

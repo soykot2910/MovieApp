@@ -31,10 +31,10 @@ export default function Movie({ movie, type }) {
       <div className="img-container">
         <div className="movie-info">
           <h3>
-            {title} ({release_date.substring(0, 4)})
+            {title} ({release_date})
           </h3>
           <p>Rating: {vote_average}</p>
-          <p>{overview.substring(0, 200) + ".."}</p>
+          <p>{overview}</p>
         </div>
         <img src={IMG_API + poster_path} alt="movie" />
       </div>
@@ -49,7 +49,9 @@ export default function Movie({ movie, type }) {
           <button
             className="btn"
             disabled={watchedDisabled}
-            onClick={() => addMovieToWatched(movie)}
+            onClick={() => {
+              addMovieToWatched(movie.id) && removeMovieFromWatchList(movie.id);
+            }}
           >
             Add To Watched
           </button>
