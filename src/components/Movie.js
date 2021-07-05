@@ -11,10 +11,16 @@ export default function Movie({ title, poster_path, overview, vote_average }) {
     <div className="movie">
       <img src={IMG_API + poster_path} alt="movie" />
       <div className="movie-info">
-        <h3 style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+        <h3
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            cursor: "pointer",
+          }}
+        >
           {truncate(title)}
         </h3>
-        <span>{vote_average}</span>
+        <span style={{ color: "orange" }}>{vote_average}</span>
       </div>
       {/* <MovieDetails title={title} /> */}
     </div>
