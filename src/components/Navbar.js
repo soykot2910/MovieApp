@@ -15,27 +15,26 @@ export default function Navbar() {
     }
   };
 
-  const handleMblMenu = () => {
-    mbl ? setMbl(false) : setMbl(true);
-  };
-
   window.addEventListener("scroll", changeNavbar);
 
   return (
     <div className={scroll ? "navbar navbar-fixed" : "navbar"}>
       <h3>
-        <Link to="/">MovieApp</Link>
+        <Link to="/" onClick={(e) => setMbl(false)}>
+          MovieApp
+        </Link>
       </h3>
-      <ul>
+      <i className="bi bi-list" onClick={(e) => setMbl(!mbl)}></i>
+      <ul className={mbl ? "mbl" : "nav"}>
         <li>
-          <Link to="/watchList">
-            WatchList <span>{watchList.length}</span>
+          <Link to="/watchList" onClick={(e) => setMbl(!mbl)}>
+            WatchList <span className="total">{watchList.length}</span>
           </Link>
         </li>
         <li>
-          <Link to="/watched">
+          <Link to="/watched" onClick={(e) => setMbl(!mbl)}>
             Watched
-            <span>{watched.length}</span>
+            <span className="total">{watched.length}</span>
           </Link>
         </li>
       </ul>

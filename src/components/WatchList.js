@@ -8,10 +8,12 @@ export default function WatchList() {
     <div className="movie-wrapper" style={{ minHeight: "86vh" }}>
       <div className="movie-container">
         {watchList.length > 0 ? (
-          watchList.map((movie) => <Movie movie={movie} type="watchList" />)
+          watchList.map((movie) => (
+            <Movie key={movie.id} movie={movie} type="watchList" />
+          ))
         ) : (
           <h1 style={{ marginTop: "200px", marginBottom: "500px" }}>
-            No Movies in Your List!
+            No Movies in Your Watch List!
           </h1>
         )}
       </div>

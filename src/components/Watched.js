@@ -8,7 +8,9 @@ export default function Watched() {
     <div className="movie-wrapper" style={{ minHeight: "86vh" }}>
       <div className="movie-container">
         {watched.length > 0 ? (
-          watched.map((movie) => <Movie movie={movie} type="watched" />)
+          watched.map((movie) => (
+            <Movie key={movie.id} movie={movie} type="watched" />
+          ))
         ) : (
           <h1 style={{ marginTop: "200px", marginBottom: "500px" }}>
             No Movies in Your List!

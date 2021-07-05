@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { MovieContext } from "../context/MovieContext";
 
 const IMG_API = "https://image.tmdb.org/t/p/w400//";
@@ -33,8 +34,8 @@ export default function Movie({ movie, type }) {
           <h3>
             {title} ({release_date})
           </h3>
-          <p>Rating: {vote_average}</p>
-          <p>{overview}</p>
+          <h4>Rating: {vote_average}</h4>
+          <p>{type === "watched" ? overview : overview.substring(0, 250)}</p>
         </div>
         <img src={IMG_API + poster_path} alt="movie" />
       </div>

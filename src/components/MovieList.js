@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Movie from "./Movie";
 
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=8f4b770dd036a39a993bd278fa769318&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=8f4b770dd036a39a993bd278fa769318&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=8f4b770dd036a39a993bd278fa769318&language=en-US&query=`;
 
 export default function MovieList() {
@@ -56,7 +56,9 @@ export default function MovieList() {
         </form>
         <div className="movie-container">
           {movies.length > 0 ? (
-            movies.map((movie) => <Movie movie={movie} type="allMovie" />)
+            movies.map((movie) => (
+              <Movie key={movie.id} movie={movie} type="allMovie" />
+            ))
           ) : (
             <h1 style={{ marginTop: "200px", marginBottom: "500px" }}>
               No Movie Found
