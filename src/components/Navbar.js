@@ -28,13 +28,14 @@ export default function Navbar() {
       <ul className={mbl ? "mbl" : "nav"}>
         <li>
           <Link to="/watchList" onClick={(e) => setMbl(!mbl)}>
-            WatchList <span className="total">{watchList.length}</span>
+            WatchList
           </Link>
+          <p className="total">{watchList.length}</p>
         </li>
         <li>
           <Link to="/watched" onClick={(e) => setMbl(!mbl)}>
             Watched
-            <span className="total">{watched.length}</span>
+            <p className="total">{watched.length}</p>
           </Link>
         </li>
       </ul>
